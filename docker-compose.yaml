@@ -1,0 +1,19 @@
+# Dockerfile.redis
+# docker-compose.yaml
+# docker_compose_basics.py
+
+# docker compose up
+
+
+
+
+version: '3.9'
+
+services:
+  script:
+    build:
+      context: .
+      dockerfile: Dockerfile.redis
+
+  redis-hello:
+    image: redis:alpine
