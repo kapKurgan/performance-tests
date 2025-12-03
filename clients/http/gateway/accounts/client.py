@@ -35,7 +35,7 @@ class AccountsGatewayHTTPClient(HTTPClient):
         """ Выполняет GET-запрос на получение списка счетов пользователя.
             :param query: Словарь с параметрами запроса, например: {'userId': '123'}.
             :return: Объект httpx.Response с данными о счетах. """
-        return self.get("/api/v1/accounts", params=QueryParams(**query))
+        return self.get("/api/v1/accounts", params=QueryParams(**query))        # 7.4.3
 
     def open_deposit_account_api(self, request: OpenDepositAccountRequestDict) -> Response:
         """ Выполняет POST-запрос для открытия депозитного счёта.
