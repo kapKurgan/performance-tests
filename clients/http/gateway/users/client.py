@@ -2,6 +2,28 @@ from clients.http.client import HTTPClient
 from httpx import Response
 from typing import TypedDict
 from clients.http.gateway.client import build_gateway_http_client
+import random
+
+user_random = str(random.randint(1, 9999)).zfill(4)
+print("Номер случайного пользователя :", user_random)
+print("=========================================================================== 00")
+
+
+# Добавили описание структуры пользователя
+class UserDict(TypedDict):
+    """ Описание структуры пользователя. """
+    id: str
+    email: str
+    lastName: str
+    firstName: str
+    middleName: str
+    phoneNumber: str
+
+
+# Добавили описание структуры ответа получения пользователя
+class GetUserResponseDict(TypedDict):
+    """ Описание структуры ответа получения пользователя. """
+    user: UserDict
 
 
 class CreateUserRequestDict(TypedDict):
@@ -13,6 +35,13 @@ class CreateUserRequestDict(TypedDict):
     phoneNumber: str
 
 
+# Добавили описание структуры ответа создания пользователя
+class CreateUserResponseDict(TypedDict):
+    """ Описание структуры ответа создания пользователя. """
+    user: UserDict
+
+
+
 class UsersGatewayHTTPClient(HTTPClient):
     """ Клиент для взаимодействия с /api/v1/users сервиса http-gateway. """
 
@@ -20,13 +49,30 @@ class UsersGatewayHTTPClient(HTTPClient):
         """ Получить данные пользователя по его user_id.
             :param user_id: Идентификатор пользователя.
             :return: Ответ от сервера (объект httpx.Response). """
-        return self.get(f"/api/v1/users{user_id}")
+        return self.get(f"/api/v1/users/{user_id}")
 
     def create_user_api(self, request: CreateUserRequestDict) -> Response:
         """ Создание нового пользователя.
             :param request: Словарь с данными нового пользователя.
             :return: Ответ от сервера (объект httpx.Response). """
         return self.post("/api/v1/users", json=request)
+
+    def get_user(self, user_id: str) -> GetUserResponseDict:
+        response = self.get_user_api(user_id)
+        return response.json()
+
+    # Добавили новый метод
+    def create_user(self) -> CreateUserResponseDict:
+        request = CreateUserRequestDict(
+            email="httpx_get_" + user_random + "@example.com",
+            lastName="Тест_" + user_random,
+            firstName="Проба_" + user_random,
+            middleName="Учеба_" + user_random,
+            phoneNumber="+70000000" + user_random
+        )
+        response = self.create_user_api(request)
+        return response.json()
+
 
 # Добавляем builder для UsersGatewayHTTPClient
 def build_users_gateway_http_client() -> UsersGatewayHTTPClient:

@@ -1,0 +1,5 @@
+.pytest_cache
+__pycache__
+.MyStep.txt
+allure-report
+allure-results
