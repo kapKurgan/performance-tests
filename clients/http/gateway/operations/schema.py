@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import StrEnum
-
+from tools.fakers import fake
 from pydantic import BaseModel, Field, HttpUrl, ConfigDict
 
 
@@ -81,8 +81,8 @@ class GetOperationReceiptResponseSchema(BaseModel):
 class MakeOperationRequestSchema(BaseModel):
     """ Базовая структура тела запроса для создания финансовой операции. """
     model_config = ConfigDict(populate_by_name=True)
-    status: OperationStatus
-    amount: float
+    status: OperationStatus = Field(default_factory=lambda: fake.enum(OperationStatus))
+    amount: float = Field(default_factory=fake.amount)
     card_id: str = Field(alias="cardId")
     account_id: str = Field(alias="accountId")
 
@@ -131,7 +131,7 @@ class MakePurchaseOperationRequestSchema(MakeOperationRequestSchema):
     """ Структура запроса для создания операции покупки.
         Дополнительное поле:
         - category: категория покупки. """
-    category: str
+    category: str = Field(default_factory=fake.category)
 
 
 class MakePurchaseOperationResponseSchema(BaseModel):
