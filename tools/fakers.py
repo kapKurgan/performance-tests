@@ -81,8 +81,8 @@ class Fake:
 
 
 # Создаем экземпляр класса Fake с использованием Faker
-fake = Fake(faker=Faker())
-fake_ru = Fake(faker=Faker("ru_RU"))
-fake_fr = Fake(faker=Faker("fr_FR"))
-fake_de = Fake(faker=Faker("de_DE"))
+fake = Fake(faker=Faker("ru_RU"))
+# fake = Fake(faker=Faker())
+# fake_fr = Fake(faker=Faker("fr_FR"))
+# fake_de = Fake(faker=Faker("de_DE"))
 

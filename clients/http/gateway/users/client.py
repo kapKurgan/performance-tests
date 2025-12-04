@@ -1,12 +1,8 @@
 from clients.http.client import HTTPClient
 from httpx import Response
-from typing import TypedDict
 from clients.http.gateway.client import build_gateway_http_client
-import random
 from clients.http.gateway.users.schema import (GetUserResponseSchema, CreateUserResponseSchema, CreateUserRequestSchema)
 
-user_random = str(random.randint(1, 9999)).zfill(4)
-print("Номер случайного пользователя :", user_random)
 print("=========================================================================== 00")
 
 
@@ -30,13 +26,7 @@ class UsersGatewayHTTPClient(HTTPClient):
         return GetUserResponseSchema.model_validate_json(response.text)
 
     def create_user(self) -> CreateUserResponseSchema:
-        request = CreateUserRequestSchema(
-            email="httpx_get_" + user_random + "@example.com",
-            last_name="Тест_" + user_random,
-            first_name="Проба_" + user_random,
-            middle_name="Учеба_" + user_random,
-            phone_number="+79000000" + user_random
-        )
+        request = CreateUserRequestSchema()
         response = self.create_user_api(request)
         return CreateUserResponseSchema.model_validate_json(response.text)
 
