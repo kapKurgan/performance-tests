@@ -139,5 +139,3 @@ def build_accounts_gateway_http_client() -> AccountsGatewayHTTPClient:
     """ Функция создаёт экземпляр AccountsGatewayHTTPClient с уже настроенным HTTP-клиентом.
         :return: Готовый к использованию AccountsGatewayHTTPClient. """
     return AccountsGatewayHTTPClient(client=build_gateway_http_client())
-
-
