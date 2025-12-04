@@ -1,7 +1,7 @@
 from httpx import Response, QueryParams
 from clients.http.client import HTTPClient
 from clients.http.gateway.client import build_gateway_http_client
-from clients.http.gateway.operations.schema import (OperationStatus, GetOperationResponseSchema, GetOperationReceiptResponseSchema,
+from clients.http.gateway.operations.schema import (GetOperationResponseSchema, GetOperationReceiptResponseSchema,
     GetOperationsQuerySchema, GetOperationsResponseSchema, GetOperationsSummaryQuerySchema, GetOperationsSummaryResponseSchema,
     MakeFeeOperationRequestSchema, MakeFeeOperationResponseSchema, MakeTopUpOperationRequestSchema, MakeTopUpOperationResponseSchema,
     MakeCashbackOperationRequestSchema, MakeCashbackOperationResponseSchema, MakeTransferOperationRequestSchema,
