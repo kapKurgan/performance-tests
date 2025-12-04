@@ -8,6 +8,6 @@ print("Создан новый пользователь :", create_user_response
 print("=========================================================================== 01")
 
 # Отправляем GET запрос на получение данных пользователя
-get_user_response = users_gateway_client.get_user(create_user_response['user']['id'])
+get_user_response = users_gateway_client.get_user(create_user_response.user.id)
 print("GET запрос на получение данных пользователя :", get_user_response)
 print("=========================================================================== 02")
