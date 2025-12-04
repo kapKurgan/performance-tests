@@ -17,11 +17,11 @@ print('Ответ на открытие счета кредитной карты
 print("=========================================================================== 02")
 
 # Получить ответ на тарифный документ
-get_tariff_document_response = documents_gateway_client.get_tariff_document(account_id=open_credit_card_account_response['account']['id'])
+get_tariff_document_response = documents_gateway_client.get_tariff_document(account_id=open_credit_card_account_response.account.id)
 print('Получить ответ на тарифный документ:', get_tariff_document_response)
 print("=========================================================================== 03")
 
 # Получить ответ на контрактный документ
-get_contract_document_response = documents_gateway_client.get_contract_document(account_id=open_credit_card_account_response['account']['id'])
+get_contract_document_response = documents_gateway_client.get_contract_document(account_id=open_credit_card_account_response.account.id)
 print('Получить ответ на контрактный документ:', get_contract_document_response)
 print("=========================================================================== 04")
