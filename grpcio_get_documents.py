@@ -59,3 +59,4 @@ get_contract_document_response: GetContractDocumentResponse = documents_gateway_
     get_contract_document_request
 )
 print('Get contract document response:', get_contract_document_response)
+
