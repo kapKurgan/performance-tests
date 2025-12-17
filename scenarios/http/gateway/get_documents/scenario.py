@@ -1,11 +1,12 @@
 # locust --config=./scenarios/http/gateway/get_documents/v1.0.conf
 
-from locust import User, between, task
+from locust import task
 
 # Импортируем схемы ответов, чтобы типизировать shared state
 from clients.http.gateway.accounts.schema import OpenSavingsAccountResponseSchema
 from clients.http.gateway.locust import GatewayHTTPSequentialTaskSet
 from clients.http.gateway.users.schema import CreateUserResponseSchema
+from tools.locust.user import LocustBaseUser
 
 
 class GetDocumentsSequentialTaskSet(GatewayHTTPSequentialTaskSet):
@@ -49,8 +50,6 @@ class GetDocumentsSequentialTaskSet(GatewayHTTPSequentialTaskSet):
         )
 
 
-class GetDocumentsScenarioUser(User):
+class GetDocumentsScenarioUser(LocustBaseUser):
     """ Пользователь Locust, исполняющий последовательный сценарий получения документов. """
-    host = "localhost"
-    tasks = [GetDocumentsSequentialTaskSet]
-    wait_time = between(1, 3)  # Имитируем паузы между выполнением сценариев
+    tasks = [GetDocumentsSequentialTaskSet] # Указываем только задачи
