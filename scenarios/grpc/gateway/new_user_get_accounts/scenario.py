@@ -1,4 +1,4 @@
-# locust --config=./scenarios/grpc/gateway/get_accounts/v1.0.conf
+# locust --config=./scenarios/grpc/gateway/new_user_get_accounts/v1.0.conf
 
 from locust import task
 
