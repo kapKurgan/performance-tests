@@ -19,13 +19,19 @@ class SeedAccountsPlan(BaseModel):
     """ План генерации счетов одного типа (например, депозитных или кредитных).
         Attributes:
             count (int): Количество счетов данного типа.
+            virtual_cards (SeedCardsPlan): План по созданию виртуальных карт на счётах.
             physical_cards (SeedCardsPlan): План по созданию физических карт на счётах.
             top_up_operations (SeedOperationsPlan): План по созданию операций пополнения.
-            purchase_operations (SeedOperationsPlan): План по созданию операций покупки. """
+            transfer_operations (SeedOperationsPlan): План по созданию операций перевода.
+            purchase_operations (SeedOperationsPlan): План по созданию операций покупки.
+            cash_withdrawal_operations (SeedOperationsPlan): План по созданию операций снятия наличных. """
     count: int = 0
+    virtual_cards: SeedCardsPlan = Field(default_factory=SeedCardsPlan)
     physical_cards: SeedCardsPlan = Field(default_factory=SeedCardsPlan)
     top_up_operations: SeedOperationsPlan = Field(default_factory=SeedOperationsPlan)
+    transfer_operations: SeedOperationsPlan = Field(default_factory=SeedOperationsPlan)
     purchase_operations: SeedOperationsPlan = Field(default_factory=SeedOperationsPlan)
+    cash_withdrawal_operations: SeedOperationsPlan = Field(default_factory=SeedOperationsPlan)
 
 
 class SeedUsersPlan(BaseModel):
