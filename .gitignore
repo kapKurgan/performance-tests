@@ -1,5 +1,16 @@
-.pytest_cache
+# pycharm
+.idea
+
+# python
+venv
+.venv
 __pycache__
-.MyStep.txt
-allure-report
-allure-results
+
+# locust
+dumps
+locust_*.csv
+locust_*.json
+report.html
+
+# Mac OS
+.DS_Store
