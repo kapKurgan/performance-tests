@@ -4,6 +4,7 @@ from clients.http.gateway.client import build_gateway_http_client, build_gateway
 from clients.http.gateway.users.schema import (GetUserResponseSchema, CreateUserResponseSchema, CreateUserRequestSchema)
 from locust.env import Environment  # Импорт окружения Locust
 
+from tools.routes import APIRoutes
 
 print("=========================================================================== 00")
 
@@ -15,13 +16,13 @@ class UsersGatewayHTTPClient(HTTPClient):
         """ Получить данные пользователя по его user_id.
             :param user_id: Идентификатор пользователя.
             :return: Ответ от сервера (объект httpx.Response). """
-        return self.get(f"/api/v1/users/{user_id}", extensions=HTTPClientExtensions(route="/api/v1/users/{user_id}"))
+        return self.get(f"{APIRoutes.USERS}/{user_id}", extensions=HTTPClientExtensions(route=f"{APIRoutes.USERS}/{{user_id}}"))
 
     def create_user_api(self, request: CreateUserRequestSchema) -> Response:
         """ Создание нового пользователя.
             :param request: Словарь с данными нового пользователя.
             :return: Ответ от сервера (объект httpx.Response). """
-        return self.post("/api/v1/users", json=request.model_dump(by_alias=True))
+        return self.post(APIRoutes.USERS, json=request.model_dump(by_alias=True))
 
     def get_user(self, user_id: str) -> GetUserResponseSchema:
         response = self.get_user_api(user_id)
