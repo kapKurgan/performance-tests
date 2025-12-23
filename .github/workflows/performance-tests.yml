@@ -75,15 +75,15 @@ jobs:
 
 
 
-#      # 9. Деплой HTML-отчёта в GitHub Pages, чтобы можно было посмотреть результаты в браузере
-#      - name: Deploy HTML report to GitHub Pages
-#        if: always()
-#        uses: peaceiris/actions-gh-pages@v4
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}  # Авторизация для push в gh-pages
-#          keep_files: true  # Сохраняем предыдущие отчёты
-#          publish_dir: reports  # Публикуем директорию reports
-#          publish_branch: gh-pages  # На ветке gh-pages
+      # 9. Деплой HTML-отчёта в GitHub Pages, чтобы можно было посмотреть результаты в браузере
+      - name: Deploy HTML report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Авторизация для push в gh-pages
+          keep_files: true  # Сохраняем предыдущие отчёты
+          publish_dir: reports  # Публикуем директорию reports
+          publish_branch: gh-pages  # На ветке gh-pages
 
       # 10. Корректно останавливаем docker-контейнеры и удаляем volume-ы (например, temp-файлы)
       - name: Stop test services
