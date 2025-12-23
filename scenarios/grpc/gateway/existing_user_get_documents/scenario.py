@@ -1,4 +1,6 @@
 # locust --config=./scenarios/grpc/gateway/existing_user_get_documents/v1.0.conf
+# locust --config=./scenarios/grpc/gateway/existing_user_get_documents/v1.0.conf --show-task-ratio-json > locust_grpc_gateway_existing_user_get_documents_ratio.json
+# load-testing-hub upload-locust-report --yaml-config=./scenarios/grpc/gateway/existing_user_get_documents/load_testing_hub.yaml
 
 from locust import task, events
 from locust.env import Environment
