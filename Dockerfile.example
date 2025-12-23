@@ -1,8 +1,0 @@
-# docker build -f Dockerfile.example -t docker-example .
-# docker run docker-example
-
-FROM python:3.12
-WORKDIR /app
-COPY . .
-RUN pip install termcolor
-CMD ["python", "docker-example.py"]
