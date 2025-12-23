@@ -136,7 +136,7 @@ locust --config=./scenarios/http/gateway/existing_user_get_documents/v1.0.conf
 Конфигурацию можно найти в [.github/workflows/performance-tests.yml](./.github/workflows/performance-tests.yml).
 
 Автоматический запуск через интерфейс GitHub:
-- [Перейдите в Actions > Performance Tests > Run workflow](https://github.com/kapKurgan/performance-tests/tree/gh-pages)
+- [Перейдите в Actions > Performance Tests > Run workflow](https://github.com/kapKurgan/performance-tests/actions)
 - Выберите сценарий тестов 
 - Нажмите Run **workflow**
 - Система выполнит тесты 
