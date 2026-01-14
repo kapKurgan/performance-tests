@@ -136,11 +136,10 @@ locust --config=./scenarios/http/gateway/existing_user_get_documents/v1.0.conf
 Конфигурацию можно найти в [.github/workflows/performance-tests.yml](./.github/workflows/performance-tests.yml).
 
 Автоматический запуск через интерфейс GitHub:
-- [Перейдите в Actions > Performance Tests > Run workflow](https://github.com/kapKurgan/performance-tests/actions)
+- [Перейдите в Actions > Performance Tests > Run workflow](https://github.com/kapKurgan/performance-tests/actions/workflows/performance-tests.yml)
 - Выберите сценарий тестов 
 - Нажмите Run **workflow**
 - Система выполнит тесты 
 
 Пример отчета:
-https://kapKurgan.github.io/performance-tests/20463148320/index.html
-
+https://kapKurgan.github.io/performance-tests/20987528469/index.html
