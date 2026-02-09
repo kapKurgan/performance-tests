@@ -142,4 +142,4 @@ locust --config=./scenarios/http/gateway/existing_user_get_documents/v1.0.conf
 - Система выполнит тесты 
 
 Пример отчета:
-https://kapKurgan.github.io/performance-tests/20987528469/index.html
+https://kapKurgan.github.io/performance-tests/21823403455/index.html
